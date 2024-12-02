@@ -1,0 +1,78 @@
+<div class="container">
+    <h1>Usuários</h1>
+  
+    <!-- Formulário de Cadastro -->
+    <form (ngSubmit)="onAddUser()" #addUserForm="ngForm">
+      <h2>Cadastrar Usuário</h2>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="newUser.nome" name="nome" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="newUser.email" name="email" required>
+      
+      <label for="password">Senha:</label>
+      <input type="password" id="password" [(ngModel)]="newUser.password" name="password" required>
+      
+      <label for="dataNascimento">Data de Nascimento:</label>
+      <input type="date" id="dataNascimento" [(ngModel)]="newUser.dataNascimento" name="dataNascimento" required>
+      
+      <button type="submit">Cadastrar</button>
+    </form>
+  
+    <!-- Formulário de Atualização -->
+    <form (ngSubmit)="onUpdateUser()" #updateUserForm="ngForm">
+      <h2>Atualizar Usuário</h2>
+      <label for="id">ID:</label>
+      <input type="number" id="id" [(ngModel)]="updatedUser.id" name="id" required>
+      
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="updatedUser.nome" name="nome" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="updatedUser.email" name="email" required>
+      
+      <label for="password">Senha:</label>
+      <input type="password" id="password" [(ngModel)]="updatedUser.password" name="password" required>
+      
+      <label for="dataNascimento">Data de Nascimento:</label>
+      <input type="date" id="dataNascimento" [(ngModel)]="updatedUser.dataNascimento" name="dataNascimento" required>
+      
+      <button type="submit">Atualizar</button>
+    </form>
+  
+    <!-- Formulário para Obter Usuário -->
+    <form (ngSubmit)="onGetUser()" #getUserForm="ngForm">
+      <h2>Obter Usuário</h2>
+      <label for="getId">ID:</label>
+      <input type="number" id="getId" [(ngModel)]="userId" name="getId" required>
+      
+      <button type="submit">Obter Usuário</button>
+    </form>
+  
+    <!-- Botão para Obter Todos os Usuários -->
+    <button (click)="onGetUsers()">Obter Todos os Usuários</button>
+  
+    <!-- Modal para Exibir Usuário -->
+    <div *ngIf="user" class="modal">
+      <h2>Detalhes do Usuário</h2>
+      <p>ID: {{user.id}}</p>
+      <p>Nome: {{user.nome}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Data de Nascimento: {{user.dataNascimento}}</p>
+      <button (click)="closeModal()">Fechar</button>
+    </div>
+  
+    <!-- Modal para Exibir Todos os Usuários -->
+    <div *ngIf="users && users.length" class="modal">
+      <h2>Lista de Usuários</h2>
+      <div *ngFor="let user of users">
+        <p>ID: {{user.id}}</p>
+        <p>Nome: {{user.nome}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Data de Nascimento: {{user.dataNascimento}}</p>
+        <hr>
+      </div>
+      <button (click)="closeUsersModal()">Fechar</button>
+    </div>
+  </div>
+  
