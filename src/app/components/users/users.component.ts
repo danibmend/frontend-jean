@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { UsersCadastro } from 'src/app/models/request/users-cadastro';
 import { UsersAtualizar } from 'src/app/models/request/users-atualizar';
-import { UsersLogin } from 'src/app/models/request/users-login';
 import { User } from 'src/app/models/response/user';
 
 @Component({
