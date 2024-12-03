@@ -11,7 +11,6 @@ import { User } from 'src/app/models/response/user';
 })
 export class UsersComponent {
 
-  newUser: UsersCadastro = new UsersCadastro();
   updatedUser: UsersAtualizar = new UsersAtualizar();
   userId?: number;
   user: User | null = null;
@@ -19,26 +18,14 @@ export class UsersComponent {
 
   constructor(private apiService: UsersService) { }
 
-  onAddUser(): void {
-    this.apiService.postUser(this.newUser).subscribe(
-      response => {
-        console.log('Usuário cadastrado com sucesso', response);
-        this.newUser = new User();
-      },
-      error => {
-        console.error('Erro ao cadastrar usuário', error);
-      }
-    );
-  }
-
   onUpdateUser(): void {
     this.apiService.putUser(this.updatedUser).subscribe(
       response => {
-        console.log('Usuário atualizado com sucesso', response);
+        alert("usuario alterado com sucesso, Id: " + this.updatedUser.id!);
         this.updatedUser = new User();
       },
       error => {
-        console.error('Erro ao atualizar usuário', error);
+        alert(error.error.mensagem);
       }
     );
   }
@@ -49,7 +36,8 @@ export class UsersComponent {
         this.user = response;
       },
       error => {
-        console.error('Erro ao obter usuário', error);
+        debugger;
+        alert(error.error.mensagem);
       }
     );
   }
@@ -60,7 +48,7 @@ export class UsersComponent {
         this.users = response;
       },
       error => {
-        console.error('Erro ao obter usuários', error);
+        alert(error.error.mensagem);
       }
     );
   }

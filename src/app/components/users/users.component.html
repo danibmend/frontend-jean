@@ -1,24 +1,6 @@
 <div class="container">
     <h1>Usuários</h1>
   
-    <!-- Formulário de Cadastro -->
-    <form (ngSubmit)="onAddUser()" #addUserForm="ngForm">
-      <h2>Cadastrar Usuário</h2>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" [(ngModel)]="newUser.nome" name="nome" required>
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="newUser.email" name="email" required>
-      
-      <label for="password">Senha:</label>
-      <input type="password" id="password" [(ngModel)]="newUser.password" name="password" required>
-      
-      <label for="dataNascimento">Data de Nascimento:</label>
-      <input type="date" id="dataNascimento" [(ngModel)]="newUser.dataNascimento" name="dataNascimento" required>
-      
-      <button type="submit">Cadastrar</button>
-    </form>
-  
     <!-- Formulário de Atualização -->
     <form (ngSubmit)="onUpdateUser()" #updateUserForm="ngForm">
       <h2>Atualizar Usuário</h2>

@@ -22,7 +22,7 @@ export class LoginComponent {
           this.router.navigate(['/users']);
         },
         error => {
-          alert('Email ou senha inválidos, crie sua conta');
+          alert(error.error.mensagem);
         }
       );
   }

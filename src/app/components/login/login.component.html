@@ -1,5 +1,6 @@
 <div class="login-container">
     <form (ngSubmit)="onSubmit()">
+        <h2>Logar Usuário para acessar</h2>
       <label for="email">Email:</label>
       <input type="email" id="email" [(ngModel)]="newLogin.email" name="email" required>
   
@@ -11,4 +12,4 @@
     </form>
   </div>
 
-  
+  <app-cadastro *ngIf="showCadastro"></app-cadastro>
